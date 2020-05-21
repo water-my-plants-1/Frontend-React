@@ -1,7 +1,7 @@
 # Frontend-React
 Completed: 
 1. Create-react-app
-2. Delegated form components
+2. Delegated form components to team members
 
 
 We have plans to implement/use:
