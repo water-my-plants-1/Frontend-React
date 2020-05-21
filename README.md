@@ -11,20 +11,20 @@ We have plans to implement/use:
 
 What we are currently doing:
 
-Michelle Hey:
+Michelle Hey (Intro to React)
 1. Form for user info/login
 
 
-Evelyn Nguyen
+Evelyn Nguyen (Intro to React)
 1. Form for plant info
 
 
-Michelle Tinajero
+Michelle Tinajero (Adv React)
 1. Waiting on forms 
 2. Then clone and work on axios
 
 
-Remon Abdou
+Remon Abdou (Adv React)
 1. Waiting on forms
 2. Then clone and work on axios
 
