@@ -1,26 +1,40 @@
 # Frontend-React
 Completed: 
--Create-react-app
--Delegated form components
+
+1. Create-react-app
+
+2. Delegated form components
+
 
 We have plans to implement/use:
 
--Axios calls
--Styled components
+1. Axios calls
+
+2. Styled components
 
 
 What we are currently doing:
 
 Michelle Hey:
--Form for user info/login
+
+1. Form for user info/login
+
 
 Evelyn Nguyen
--Form for plant info
+
+1. Form for plant info
+
 
 Michelle Tinajero
--Waiting on forms 
+
+1. Waiting on forms 
+
+2. Then clone and work on axios
+
 
 Remon Abdou
--Waiting on forms
--Then clone and work on axios
+
+1. Waiting on forms
+
+2. Then clone and work on axios
 
