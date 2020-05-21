@@ -27,7 +27,3 @@ Michelle Tinajero
 2. Then clone and work on axios
 
 
-Remon Abdou 
-1. Waiting on forms
-2. Then clone and work on axios
-
