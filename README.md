@@ -2,7 +2,6 @@
 Completed: 
 
 1. Create-react-app
-
 2. Delegated form components
 
 
