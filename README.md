@@ -9,22 +9,25 @@ We have plans to implement/use:
 2. Styled components
 
 
-What we are currently doing:
 
-Michelle Hey (Intro to React)
+INTRO TO REACT (Web Unit 2)
+------------------------------------------------
+Michelle Hey 
 1. Form for user info/login
 
 
-Evelyn Nguyen (Intro to React)
+Evelyn Nguyen 
 1. Form for plant info
 
 
-Michelle Tinajero (Adv React)
+ADVANCED REACT (Web Unit 3)
+-------------------------------------------------
+Michelle Tinajero 
 1. Waiting on forms 
 2. Then clone and work on axios
 
 
-Remon Abdou (Adv React)
+Remon Abdou 
 1. Waiting on forms
 2. Then clone and work on axios
 
