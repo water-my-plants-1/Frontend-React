@@ -1,6 +1,31 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import * as yup from "yup";
+import styled from 'styled-components';
+
+const Button = styled.button`
+    padding: 6px 10px;
+    margin: 5px;
+    background-color: green;
+    border-radius: 3px;
+    color: white;
+`;
+
+const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    max-width: 300px;
+`;
+
+const Label = styled.label`
+    display: flex;
+    flex-direction: column;
+    align-item: flex-start;
+    margin: 15px 0;
+
+`;
 
 const formSchema = yup.object().shape({
     plantName: yup.string().required("Name is a required field"),
@@ -69,8 +94,8 @@ const PlantForm = () =>{
 
         <div>
             <h2>Let's add your plants</h2>
-            <form onSubmit={formSubmit}>
-                <label htmlFor="plantName">
+            <Form onSubmit={formSubmit}>
+                <Label htmlFor="plantName">
                     Plant Name
                     <input 
                         type="text"
@@ -79,8 +104,8 @@ const PlantForm = () =>{
                         value={formState.plantName}
                         onChange={inputChange}
                     />
-                </label>
-                <label htmlFor="plantSpecies">
+                </Label>
+                <Label htmlFor="plantSpecies">
                     Plant Species
                     <input 
                         type="text"
@@ -89,8 +114,8 @@ const PlantForm = () =>{
                         value={formState.plantSpecies}
                         onChange={inputChange}
                     />
-                </label>
-                <label htmlFor="wateringSchedule">
+                </Label>
+                <Label htmlFor="wateringSchedule">
                     Watering Schedule
                     <select
                         name="wateringSchedule"
@@ -111,11 +136,11 @@ const PlantForm = () =>{
                         <option value="Once a week">Once a week</option>
                         <option value="Once every two weeks">Once every two weeks</option>
                     </select> 
-                </label>
-                <button disabled={buttonDisabled}>Submit</button>
+                </Label>
+                <Button  disabled={buttonDisabled}>Submit</Button>
                 
 
-            </form>
+            </Form>
 
         </div>
     );
