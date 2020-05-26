@@ -99,8 +99,10 @@ const UserLogin = () => {
             e.persist();
             validate(e);
             console.log("Input changed", e.target.value); 
-                //could I put value here instead as seen in validate below?
-                    // const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+
+            const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+            setFormState({ ...formState, [e.target.name]: value });
+            console.log("what is this", value);
         };
         
         // useEffect
@@ -181,7 +183,7 @@ const UserLogin = () => {
             </Label>
 
             <Button type="submit" data-cy="submit" disabled={buttonDisabled}>Login!</Button>
-            <pre>{JSON.stringify(post, null, 2)}</pre>
+           
          
         </Form>
     </div>

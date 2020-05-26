@@ -88,7 +88,6 @@ const UserSignUp = () => {
             axios
                 .post('https://reqres.in/api/users/', formState)
                 .then(res => {
-                    console.log('axios post request', res);
                     console.log('axios post request', res.data);
                     setPost(res.data);
                     // setPost([...post, res.data]);
@@ -216,8 +215,7 @@ const UserSignUp = () => {
             </Label>
 
             <Button type="submit" data-cy="submit" disabled={buttonDisabled}>Login!</ Button>
-            
-            <pre>{JSON.stringify(post, null, 2)}</pre>
+        
         </Form>
     </div>
   );
