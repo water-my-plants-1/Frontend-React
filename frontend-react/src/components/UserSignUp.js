@@ -44,6 +44,10 @@ const formSchema = yup.object().shape({
       .string()
       .min(6, "Passwords must be at least 6 characters long.")
       .required("Password is Required"),
+    confirm_password: yup
+        .string()
+        .required()
+        .oneOf([yup.ref('password'), null], "Passwords must match" ),
     terms: yup
       .boolean()
       .oneOf([true], "You must accept Terms and Conditions")
@@ -55,13 +59,12 @@ const formSchema = yup.object().shape({
 
 const UserSignUp = () => {
     
-        const [post, setPost] = useState({});
-        const [buttonDisabled, setButtonDisabled] = useState(true);
         // Create state for the form values. We will want to update state later on, but for now... empty strings!
         const [formState, setFormState] = useState({
             name: "",
             email: "",
             password: "",
+            confirm_password: "",
             terms: ""
         });
 
@@ -70,8 +73,12 @@ const UserSignUp = () => {
             name: "",
             email: "",
             password: "",
+            confirm_password: "",
             terms: ""
         });
+
+        const [post, setPost] = useState({});
+        const [buttonDisabled, setButtonDisabled] = useState(true);
 
     // subtmit handler, axios call goes here within this function scope
         const formSubmit = e => {
@@ -89,6 +96,7 @@ const UserSignUp = () => {
                         name: "",
                         email: "",
                         password: "",
+                        confirm_password: "",
                         terms: ""
                     });
                 })
@@ -99,9 +107,10 @@ const UserSignUp = () => {
         const inputChange = e => {
             e.persist();
             validate(e);
-            console.log("Input changed", e.target.value); 
-                //could I put value here instead as seen in validate below?
-                    // const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+            console.log("Input changed", e.target.value);
+            const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+            setFormState({ ...formState, [e.target.name]: value });
+            console.log("what is this", value);
         };
         
         // useEffect
@@ -182,6 +191,19 @@ const UserSignUp = () => {
             </Label>
                 {errors.password.length > 6 ? (<p className="error">{errors.email}</p>) : null}
 
+            <Label htmlFor="confirm_password">
+                Confirm Password
+                <input 
+                    id="confirm_password" 
+                    type="password" 
+                    name="confirm_password" 
+                    placeholder="Password"
+                    value={formState.confirm_password}
+                    onChange={inputChange} 
+                />
+            </Label>
+                {errors.password.length > 6 ? (<p className="error">{errors.email}</p>) : null}
+
             <Label htmlFor="termsInput">
                 Do you agree to the terms and conditions?
                 <input 
@@ -193,7 +215,7 @@ const UserSignUp = () => {
                 />
             </Label>
 
-            <Button type="submit" data-cy="submit" disabled={buttonDisabled}>Login!</Button>
+            <Button type="submit" data-cy="submit" disabled={buttonDisabled}>Login!</ Button>
             
             <pre>{JSON.stringify(post, null, 2)}</pre>
         </Form>

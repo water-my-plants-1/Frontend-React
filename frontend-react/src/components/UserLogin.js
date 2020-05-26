@@ -81,16 +81,15 @@ const UserLogin = () => {
             axios
                 .post('https://reqres.in/api/users/', formState)
                 .then(res => {
-                    console.log('axios post request', res);
-                    console.log('axios post request', res.data);
                     setPost(res.data);
-                    // setPost([...post, res.data]);
-                    setFormState({
-                        name: "",
-                        email: "",
-                        password: "",
-                        terms: ""
-                    });
+                    console.log("Results", res);
+                    // setPost([...post, res.data]); which to use?
+                    // setFormState({
+                    //     name: "",
+                    //     email: "",
+                    //     password: "",
+                    //     terms: ""
+                    // });
                 })
                 .catch( err => console.log(err.res));
         };
@@ -182,6 +181,7 @@ const UserLogin = () => {
             </Label>
 
             <Button type="submit" data-cy="submit" disabled={buttonDisabled}>Login!</Button>
+            <pre>{JSON.stringify(post, null, 2)}</pre>
          
         </Form>
     </div>
