@@ -137,7 +137,7 @@ const PlantForm = () =>{
                         <option value="Once every two weeks">Once every two weeks</option>
                     </select> 
                 </Label>
-                <Button  disabled={buttonDisabled}>Submit</Button>
+                <Button disabled={buttonDisabled}>Submit</Button>
                 
 
             </Form>
