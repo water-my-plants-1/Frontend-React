@@ -53,7 +53,7 @@ const formSchema = yup.object().shape({
 
 // Define form elements: email, password and terms/conditions
 
-const UserLogin = () => {
+const UserSignUp = () => {
     
         const [post, setPost] = useState({});
         const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -141,8 +141,20 @@ const UserLogin = () => {
 
   return (
     <div className="userDiv">
-        <h1>User LogIn</h1>
+        <h1>User Sign-Up</h1>
         <Form onSubmit={formSubmit}>
+            <Label htmlFor="name">
+                Name
+                <input 
+                    id="name" 
+                    type="name" 
+                    name="name" 
+                    placeholder="Name"
+                    value={formState.name}
+                    onChange={inputChange}
+                />
+            </Label>
+                {errors.name.length > 0 ? (<p className="error">{errors.name}</p>) : null}
 
             <Label htmlFor="emailInput">
                 Email
@@ -182,10 +194,11 @@ const UserLogin = () => {
             </Label>
 
             <Button type="submit" data-cy="submit" disabled={buttonDisabled}>Login!</Button>
-         
+            
+            <pre>{JSON.stringify(post, null, 2)}</pre>
         </Form>
     </div>
   );
 }
 
-export default UserLogin;
+export default UserSignUp;

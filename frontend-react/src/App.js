@@ -1,8 +1,9 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
-import PlantForm from './components/PlantForm';
 import UserLogin from './components/UserLogin';
+import UserSignUp from './components/UserSignUp';
+import PlantForm from './components/PlantForm';
 
 import './App.css';
 import styled from 'styled-components';
@@ -23,15 +24,22 @@ function App() {
       </Link>
 
       <Link to="/UserLogin">
-        <Button>Login</Button>
+        <Button>LogIn</Button>
+      </Link>
+
+      <Link to="/UserSignUp">
+        <Button>Sign Up</Button>
       </Link>
       
       <Link to="/PlantForm">
         <Button>Add your plant!</Button>
       </Link>
       
-      <Route path="/PlantForm" component={PlantForm} />
+      {/* Route exact path="/" components={Home} /> */}
       <Route path="/UserLogin" component={UserLogin} />
+      <Route path="/UserSignUp" component={UserSignUp} />
+      <Route path="/PlantForm" component={PlantForm} />
+
     </div>
   );
 }
