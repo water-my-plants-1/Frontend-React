@@ -5,8 +5,8 @@ import * as yup from "yup";
 import "../index.css";
 
 const formSchema = yup.object().shape({
-  plantName: yup.string().required("Name is a required field"),
-  plantSpecies: yup.string().required("Must include why you'd like to join"),
+  plantName: yup.string().required("Plant name is a required field"),
+  plantSpecies: yup.string().required("Plant species is a required field"),
   wateringSchedule: yup.string(),
 });
 
@@ -89,7 +89,9 @@ const PlantForm = (props) => {
             id="plantName"
             value={formState.plantName}
             onChange={inputChange}
+            placeholder="Plant Name"
           />
+          {errorState.plantName.length > 0 ? <p id="error">{errorState.plantName}</p>: null}
         </label>
         <label htmlFor="plantSpecies">
           Plant Species
@@ -99,7 +101,9 @@ const PlantForm = (props) => {
             id="plantSpecies"
             value={formState.plantSpecies}
             onChange={inputChange}
+            placeholder="Plant Species"
           />
+          {errorState.plantSpecies.length > 0 ? <p id="error">{errorState.plantSpecies}</p>: null}
         </label>
         <label htmlFor="wateringSchedule">
           Watering Schedule

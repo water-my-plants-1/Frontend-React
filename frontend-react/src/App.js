@@ -16,6 +16,11 @@ function App() {
 
   const addPlant = plant => {
     setPlantList([...plantList, plant]);
+    console.log('done');
+  };
+
+  const removePlant = plant => {
+    setPlantList(plantList.filter(item => item.plantName !== plant.plantName));
   };
 
   
@@ -46,7 +51,7 @@ function App() {
       <Route path="/UserLogin" component={UserLogin} />
       <Route path="/Register" component={UserSignUp} />
       <Route path="/PlantForm" render={props => (<PlantForm {...props} newPlant={addPlant}/>)} />
-      <Route path="/PlantList" render={props => (<PlantList {...props} plantList={plantList}/>)} />
+      <Route path="/PlantList" render={props => (<PlantList {...props} plantList={plantList} removePlant={removePlant}/>)} />
 
       {/* render={props => (<DisplayPlants {...props} addPlant={addPlant} />)} */}
     </div>

@@ -1,10 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 
 const PlantList = (props) => {
-    // <h2>Your Plants</h2>
     return (
         <div>
-            {/* {JSON.stringify(props.plantList)} */}
+
             {
                 props.plantList.map((plant, i) => {
                    return(
@@ -12,6 +11,7 @@ const PlantList = (props) => {
                            <h3>Plant Name: {plant.plantName}</h3>
                            <h3>Plant Species: {plant.plantSpecies}</h3>
                            <h3>Please water : {plant.wateringSchedule}</h3>
+                           <button onClick={() => props.removePlant(plant)}>Remove Plant</button>
                        </div>
                    );
                 })
