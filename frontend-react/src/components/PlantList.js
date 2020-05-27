@@ -1,9 +1,12 @@
 import React, {useState} from "react";
 
+import "../index.css";
+
 const PlantList = (props) => {
     return (
         <div>
-
+            <h2>Your Plants</h2>
+            <div className="plantContainer">
             {
                 props.plantList.map((plant, i) => {
                    return(
@@ -16,6 +19,8 @@ const PlantList = (props) => {
                    );
                 })
             }
+            </div>
+       
         </div>
     );
 };
