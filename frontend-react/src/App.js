@@ -16,8 +16,8 @@ function App() {
         <button>Home</button>
       </Link>
 
-      <Link to="/UserLogin">
-        <button>LogIn</button>
+      <Link to="/Login">
+        <button>Login</button>
       </Link>
 
       <Link to="/Register">
@@ -29,7 +29,7 @@ function App() {
       </Link>
 
       {/* Route exact path="/" components={Home} /> */}
-      <Route path="/UserLogin" component={UserLogin} />
+      <Route path="/Login" component={UserLogin} />
       <Route path="/Register" component={UserSignUp} />
       <Route path="/PlantForm" component={PlantForm} />
     </div>

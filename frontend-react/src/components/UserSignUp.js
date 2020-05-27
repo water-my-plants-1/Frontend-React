@@ -4,6 +4,7 @@ import * as yup from "yup";
 import "../index.css";
 
 //Form schema outside of function scope
+// I would prefer to have all errors show up until they have been fixed for each input as you go along
 const formSchema = yup.object().shape({
   name: yup
     .string()
@@ -16,13 +17,23 @@ const formSchema = yup.object().shape({
   password: yup
     .string()
     .min(6, "Passwords must be at least 6 characters long.")
+    .matches(/[a-z]/, 'At least one lowercase character required.')
+    .matches(/[A-Z]/, 'At least one uppercase character required.')
+    .matches(/[a-zA-Z]+[^a-zA-Z\s]+/, 'At least 1 number or special character is required (@,!,#, etc).')
     .required("Password is Required"),
   confirm_password: yup
     .string()
     .required()
     .oneOf([yup.ref("password"), null], "Passwords must match"),
-  phone_number: yup.string().required("Must include a phone number"),
-  terms: yup.boolean().oneOf([true], "You must accept Terms and Conditions"),
+  phone_number: yup
+    .number()
+    .typeError("That doesn't look like a phone number")
+    .positive("A phone number can't start with a minus")
+    .integer("A phone number can't include a decimal point")
+    .min(8)
+    .required('A phone number is required'),
+  terms: yup
+    .boolean().oneOf([true], "You must accept Terms and Conditions"),
   // required isn't required for checkboxes.
 });
 
