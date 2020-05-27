@@ -21,12 +21,15 @@ const PlantForm = (props) => {
     plantSpecies: "",
     wateringSchedule: "",
   });
+
   const [buttonDisabled, setButtonDisabled] = useState(true);
+
   useEffect(() => {
     formSchema.isValid(formState).then((valid) => {
       setButtonDisabled(!valid);
     });
   }, [formState]);
+  
   const validate = (e) => {
     let value =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;

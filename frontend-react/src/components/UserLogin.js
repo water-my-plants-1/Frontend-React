@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import * as yup from "yup";
 import "../index.css";
+
+import { useHistory } from 'react-router-dom'
+import { axiosWithAuth } from '../Unit3-React-Folder/utils/axiosWithAuth';
 
 //Form schema outside of function scope
 const formSchema = yup.object().shape({
@@ -35,25 +38,43 @@ const UserLogin = () => {
     password: "",
   });
 
+  const history = useHistory();
   // subtmit handler, axios call goes here within this function scope
   const formSubmit = (e) => {
     e.preventDefault();
     console.log("Submitted");
-
-    axios
-      .post("https://water-my-plants-backend-vw.herokuapp.com/Login", formState)
-      .then((res) => {
-        setPost(res.data);
-        console.log("Results", res);
-        // setPost([...post, res.data]); which to use?
-        // setFormState({
-        //     name: "",
-        //     email: "",
-        //     password: "",
-        //     terms: ""
-        // });
-      })
-      .catch((err) => console.log(err.res));
+    axiosWithAuth()
+        .post('https://water-my-plants-backend-vw.herokuapp.com/login', formState)
+        .then((res) => {
+            localStorage.setItem('token', res.data.payload);
+            history.push('/home-page'); 
+            setPost(res.data);
+            console.log("Results", res);
+            setPost([...post, res.data]); //which to use?
+            setFormState({
+                name: "",
+                email: "",
+                password: "",
+                terms: ""
+              });
+        })
+        .catch(err => {
+          console.log(err.res);
+        })
+    // axios
+    //   .post("https://water-my-plants-backend-vw.herokuapp.com/Login", formState)
+    //   .then((res) => {
+    //     setPost(res.data);
+    //     console.log("Results", res);
+    //     // setPost([...post, res.data]); which to use?
+    //     // setFormState({
+    //     //     name: "",
+    //     //     email: "",
+    //     //     password: "",
+    //     //     terms: ""
+    //     // });
+    //   })
+    //   .catch((err) => console.log(err.res));
   };
 
   // change handler
@@ -137,17 +158,6 @@ const UserLogin = () => {
         {errors.password.length > 6 ? (
           <p className="error">{errors.email}</p>
         ) : null}
-
-        <label htmlFor="termsInput">
-          Do you agree to the terms and conditions?
-          <input
-            id="termsInput"
-            type="checkbox"
-            name="terms"
-            checked={formState.termsInput}
-            onChange={inputChange}
-          />
-        </label>
 
         <button type="submit" data-cy="submit" disabled={buttonDisabled}>
           Login!
