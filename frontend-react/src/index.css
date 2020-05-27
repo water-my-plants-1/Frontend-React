@@ -34,3 +34,17 @@ label {
     align-item: flex-start;
     margin: 15px 0;
 }
+
+.plant{
+  background-color: aquamarine;
+  width: 150px;
+  margin: 20px;
+}
+
+.plantContainer{
+  display: flex;
+  flex-wrap: wrap;
+}
+/* .plantContainer h2{
+  margin: 20px 0;
+} */
