@@ -10,7 +10,7 @@ const formSchema = yup.object().shape({
   wateringSchedule: yup.string(),
 });
 
-const PlantForm = () => {
+const PlantForm = (props) => {
   const [errorState, setErrorState] = useState({
     plantName: "",
     plantSpecies: "",
@@ -58,10 +58,22 @@ const PlantForm = () => {
 
   const formSubmit = (e) => {
     e.preventDefault();
+    setFormState({
+      plantName: "",
+      plantSpecies: "",
+      wateringSchedule: "",
+    })
+
     console.log("form submitted!");
     axios
-        .post("https://water-my-plants-backend-vw.herokuapp.com/user/plant", formState)
-        .then(response => console.log(response))
+        // .post("https://water-my-plants-backend-vw.herokuapp.com/user/plant", formState)
+        .post("https://reqres.in/api/users", formState)
+        .then(response => {
+          console.log(response.data);
+          //update display plants state
+          props.newPlant(response.data);
+          props.history.push("/PlantList");
+        })
         .catch(err => console.log(err));
     };
 

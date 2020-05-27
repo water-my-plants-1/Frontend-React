@@ -1,15 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import { Route, Link } from "react-router-dom";
 
 import UserLogin from "./components/UserLogin";
 import UserSignUp from "./components/UserSignUp";
 import PlantForm from "./components/PlantForm";
+import PlantList from "./components/PlantList";
 
 import "./App.css";
 import "./index.css";
 
 
 function App() {
+
+  const [plantList, setPlantList] = useState([]);
+
+  const addPlant = plant => {
+    setPlantList([...plantList, plant]);
+  };
+
+  
+
   return (
     <div className="App">
       <Link to="/">
@@ -28,10 +38,17 @@ function App() {
         <button>Add your plant!</button>
       </Link>
 
+      <Link to="/PlantList">
+        <button>Your Plants</button>
+      </Link>
+
       {/* Route exact path="/" components={Home} /> */}
       <Route path="/UserLogin" component={UserLogin} />
       <Route path="/Register" component={UserSignUp} />
-      <Route path="/PlantForm" component={PlantForm} />
+      <Route path="/PlantForm" render={props => (<PlantForm {...props} newPlant={addPlant}/>)} />
+      <Route path="/PlantList" render={props => (<PlantList {...props} plantList={plantList}/>)} />
+
+      {/* render={props => (<DisplayPlants {...props} addPlant={addPlant} />)} */}
     </div>
   );
 }
