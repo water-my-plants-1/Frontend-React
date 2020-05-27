@@ -138,17 +138,6 @@ const UserLogin = () => {
           <p className="error">{errors.email}</p>
         ) : null}
 
-        <label htmlFor="termsInput">
-          Do you agree to the terms and conditions?
-          <input
-            id="termsInput"
-            type="checkbox"
-            name="terms"
-            checked={formState.termsInput}
-            onChange={inputChange}
-          />
-        </label>
-
         <button type="submit" data-cy="submit" disabled={buttonDisabled}>
           Login!
         </button>
