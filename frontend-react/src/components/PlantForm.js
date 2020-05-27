@@ -60,10 +60,10 @@ const PlantForm = () => {
     e.preventDefault();
     console.log("form submitted!");
     axios
-      .post("https://reqres.in/api/users", formState)
-      .then((response) => console.log(response))
-      .catch((err) => console.log(err));
-  };
+        .post("https://water-my-plants-backend-vw.herokuapp.com/user/plant", formState)
+        .then(response => console.log(response))
+        .catch(err => console.log(err));
+    };
 
   return (
     <div>

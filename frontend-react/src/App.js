@@ -20,7 +20,7 @@ function App() {
         <button>LogIn</button>
       </Link>
 
-      <Link to="/UserSignUp">
+      <Link to="/Register">
         <button>Sign Up</button>
       </Link>
 
@@ -30,7 +30,7 @@ function App() {
 
       {/* Route exact path="/" components={Home} /> */}
       <Route path="/UserLogin" component={UserLogin} />
-      <Route path="/UserSignUp" component={UserSignUp} />
+      <Route path="/Register" component={UserSignUp} />
       <Route path="/PlantForm" component={PlantForm} />
     </div>
   );
