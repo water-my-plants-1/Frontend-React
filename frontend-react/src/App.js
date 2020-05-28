@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Link, BrowserRouter} from "react-router-dom";
 
-// import Home from "./Home";
+import Home from "./Home";
 // import UserProfile from "./components/UserProfile";
 import UserLogin from "./components/UserLogin";
 import UserSignUp from "./components/UserSignUp";
@@ -39,9 +39,9 @@ function App() {
 
         
         {/* goal is to link marketing page to about link once the website is deployed by melissa or others */}
-        <Link to="/">
+        {/* <Link to="/">
           <button>About</button> 
-        </Link>
+        </Link> */}
 
        <Link to="/UserLogin">
         <button>Login</button>
@@ -61,7 +61,7 @@ function App() {
         <button>Your Plants</button>
         </Link>
 
-      {/* <Route exact path="/" components={Home} /> */}
+      <Route exact path="/" components={Home} />
       <Route path="/UserLogin" component={UserLogin} />
       <Route path="/Register" component={UserSignUp} />
       <Route path="/PlantForm" component={PlantForm} />
