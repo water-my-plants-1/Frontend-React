@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { Route, Link, BrowserRouter} from "react-router-dom";
 
 
@@ -18,16 +18,16 @@ import "./index.css";
 
 function App() {
 
-  const [plantList, setPlantList] = useState([]);
+  // const [plantList, setPlantList] = useState([]);
 
-  const addPlant = plant => {
-    setPlantList([...plantList, plant]);
-    console.log('done');
-  };
+  // const addPlant = plant => {
+  //   setPlantList([...plantList, plant]);
+  //   console.log('done');
+  // };
 
-  const removePlant = plant => {
-    setPlantList(plantList.filter(item => item.plantName !== plant.plantName));
-  };
+  // const removePlant = plant => {
+  //   setPlantList(plantList.filter(item => item.plantName !== plant.plantName));
+  // };
 
   return (
     <BrowserRouter>
@@ -57,10 +57,11 @@ function App() {
        {/* Route exact path="/" components={Home} /> */}
       <Route path="/UserLogin" component={UserLogin} />
       <Route path="/Register" component={UserSignUp} />
-      <Route path="/PlantForm" render={props => (<PlantForm {...props} newPlant={addPlant}/>)} />
-      <Route path="/PlantList" render={props => (<PlantList {...props} plantList={plantList} removePlant={removePlant}/>)} />
-
-      {/* render={props => (<DisplayPlants {...props} addPlant={addPlant} />)} */}
+     
+      <Route path="/PlantForm" component={PlantForm} />
+      
+      <Route path="/PlantList" component={PlantList} />
+   
       </div>
     </BrowserRouter>
   );

@@ -5,21 +5,21 @@ import * as yup from "yup";
 import "../index.css";
 
 const formSchema = yup.object().shape({
-  plantName: yup.string().required("Plant name is a required field"),
-  plantSpecies: yup.string().required("Plant species is a required field"),
-  wateringSchedule: yup.string(),
+  nickname: yup.string().required("Plant name is a required field"),
+  species: yup.string().required("Plant species is a required field"),
+  H2oFrequency: yup.string(),
 });
 
-const PlantForm = (props) => {
+const PlantForm = () => {
   const [errorState, setErrorState] = useState({
-    plantName: "",
-    plantSpecies: "",
-    wateringSchedule: "",
+    nickname: "",
+    species: "",
+    H2oFrequency: "",
   });
   const [formState, setFormState] = useState({
-    plantName: "",
-    plantSpecies: "",
-    wateringSchedule: "",
+    nickname: "",
+    species: "",
+    H2oFrequency: "",
   });
 
   const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -62,20 +62,20 @@ const PlantForm = (props) => {
   const formSubmit = (e) => {
     e.preventDefault();
     setFormState({
-      plantName: "",
-      plantSpecies: "",
-      wateringSchedule: "",
+      nickname: "",
+      species: "",
+      H2oFrequency: "",
     })
 
     console.log("form submitted!");
     axios
-        // .post("https://water-my-plants-backend-vw.herokuapp.com/user/plant", formState)
-        .post("https://reqres.in/api/users", formState)
+        .post("https://water-my-plants-backend-vw.herokuapp.com/user", formState)
+        // .post("https://reqres.in/api/users", formState)
         .then(response => {
           console.log(response.data);
           //update display plants state
-          props.newPlant(response.data);
-          props.history.push("/PlantList");
+          // props.newPlant(response.data);
+          // props.history.push("/PlantList");
         })
         .catch(err => console.log(err));
     };
@@ -84,36 +84,36 @@ const PlantForm = (props) => {
     <div>
       <h2>Let's add your plants</h2>
       <form onSubmit={formSubmit}>
-        <label htmlFor="plantName">
+        <label htmlFor="nickname">
           Plant Name
           <input
             type="text"
-            name="plantName"
-            id="plantName"
-            value={formState.plantName}
+            name="nickname"
+            id="nickname"
+            value={formState.nickname}
             onChange={inputChange}
             placeholder="Plant Name"
           />
-          {errorState.plantName.length > 0 ? <p id="error">{errorState.plantName}</p>: null}
+          {errorState.nickname.length > 0 ? <p id="error">{errorState.nickname}</p>: null}
         </label>
-        <label htmlFor="plantSpecies">
+        <label htmlFor="species">
           Plant Species
           <input
             type="text"
-            name="plantSpecies"
-            id="plantSpecies"
-            value={formState.plantSpecies}
+            name="species"
+            id="species"
+            value={formState.species}
             onChange={inputChange}
             placeholder="Plant Species"
           />
-          {errorState.plantSpecies.length > 0 ? <p id="error">{errorState.plantSpecies}</p>: null}
+          {errorState.species.length > 0 ? <p id="error">{errorState.species}</p>: null}
         </label>
-        <label htmlFor="wateringSchedule">
+        <label htmlFor="H2oFrequency">
           Watering Schedule
           <select
-            name="wateringSchedule"
-            id="wateringSchedule"
-            value={formState.wateringSchedule}
+            name="H2oFrequency"
+            id="H2oFrequency"
+            value={formState.H2oFrequency}
             onChange={inputChange}
           >
             <option value="">-Please Select One-</option>

@@ -10,7 +10,7 @@ const HomePage = (props) => {
 
     useEffect(() => {
         axios
-            .get(`https://water-my-plants-backend-vw.herokuapp.com/plants`)
+            .get(`https://water-my-plants-backend-vw.herokuapp.com/user/plants`)
             .then(res => { 
                 setData(res.data)
             })
@@ -24,7 +24,7 @@ const HomePage = (props) => {
         e.preventDefault();
         axios
             .delete(
-                `https://water-my-plants-backend-vw.herokuapp.com/plants/${e.target.value}`
+                `https://water-my-plants-backend-vw.herokuapp.com/user/plants/${e.target.value}`
                 )
                 .then(res => {
                     setData(res.data);
