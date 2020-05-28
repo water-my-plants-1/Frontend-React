@@ -5,9 +5,9 @@ import Loader from 'react-loader-spinner';
 
 const Plants = props => {
     useEffect(() => {
-        props.fetchPlants();
+      props.fetchPlants();
     }, [])
-
+ 
     return (
         <div>
             <h1>Plants Plants Plants!</h1>
