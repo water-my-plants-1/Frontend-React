@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Route, Link, BrowserRouter} from "react-router-dom";
 
-
+// import Home from "./Home";
 import UserLogin from "./components/UserLogin";
 import UserSignUp from "./components/UserSignUp";
 import PlantForm from "./components/PlantForm";
@@ -36,6 +36,10 @@ function App() {
           <button>Home</button>
         </Link>
 
+        <Link to="/">
+          <button>About</button>
+        </Link>
+
        <Link to="/UserLogin">
         <button>LogIn</button>
       </Link>
@@ -54,7 +58,7 @@ function App() {
         <button>Your Plants</button>
         </Link>
 
-       {/* Route exact path="/" components={Home} /> */}
+      {/* <Route exact path="/" components={Home} /> */}
       <Route path="/UserLogin" component={UserLogin} />
       <Route path="/Register" component={UserSignUp} />
       <Route path="/PlantForm" render={props => (<PlantForm {...props} newPlant={addPlant}/>)} />
