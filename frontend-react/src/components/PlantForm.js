@@ -69,8 +69,8 @@ const PlantForm = () => {
 
     console.log("form submitted!");
     axios
-        .post("https://water-my-plants-backend-vw.herokuapp.com/user", formState)
-        // .post("https://reqres.in/api/users", formState)
+        // .post("https://water-my-plants-backend-vw.herokuapp.com/user", formState)
+        .post("https://reqres.in/api/users", formState)
         .then(response => {
           console.log(response.data);
           //update display plants state
@@ -117,17 +117,10 @@ const PlantForm = () => {
             onChange={inputChange}
           >
             <option value="">-Please Select One-</option>
-            <option value="Once a day">Once a day</option>
-            <option value="Twice a day">Twice a day</option>
-            <option value="Three times a day">Three times a day</option>
-            <option value="Every other day">Every other day</option>
-            <option value="Every two days">Every two days</option>
-            <option value="Every three days">Every three days</option>
-            <option value="Every four days">Every four days</option>
-            <option value="Every five days">Every five days</option>
-            <option value="Every six days">Every six days</option>
-            <option value="Once a week">Once a week</option>
-            <option value="Once every two weeks">Once every two weeks</option>
+            <option value="1">Once a day</option>
+            <option value="2">Twice a day</option>
+            <option value="3">Three times a day</option>
+            <option value="4">Four times a day</option>
           </select>
         </label>
         <button disabled={buttonDisabled}>Submit</button>
