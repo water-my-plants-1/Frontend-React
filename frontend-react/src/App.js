@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Link, BrowserRouter} from "react-router-dom";
 
-import Home from "./Home";
-// import UserProfile from "./components/UserProfile";
+import Home from "./components/Home";
+import UserProfile from "./components/UserProfile";
 import UserLogin from "./components/UserLogin";
 import UserSignUp from "./components/UserSignUp";
 import PlantForm from "./components/PlantForm";
@@ -60,13 +60,18 @@ function App() {
          <Link to="/PlantList">
         <button>Your Plants</button>
         </Link>
+        
+        <Link to="/UserProfile">
+        <button>User Profile</button>
+        </Link>
+
 
       <Route exact path="/" components={Home} />
       <Route path="/UserLogin" component={UserLogin} />
       <Route path="/Register" component={UserSignUp} />
       <Route path="/PlantForm" component={PlantForm} />
       <Route path="/PlantList" component={PlantList} />
-      {/* <Route path="/UserProfile" component={UserProfile} /> */}
+      <Route path="/UserProfile" component={UserProfile} />
    
       </div>
     </BrowserRouter>

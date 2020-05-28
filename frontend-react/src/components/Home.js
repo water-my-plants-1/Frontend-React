@@ -7,7 +7,9 @@ import "../index.css";
 const Home = () => {
 
     return (
-        <h1>Welcome to the Water My Plants App!</h1>
+        <div>
+            <h1>Welcome to the Water My Plants App!</h1>
+        </div>
     );
 }
 
