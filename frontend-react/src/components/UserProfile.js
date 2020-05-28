@@ -5,15 +5,15 @@ import axios from "axios";
 // goal is to get the user information
 
 const UserProfile = (props) => {
-    const [info, setInfo] = useState([]);
-    console.log(info);
+    const [user, setUser] = useState([]);
+    console.log(user);
   
     useEffect(() => {
       axios
         .get("https://water-my-plants-backend-vw.herokuapp.com/user")
         .then(res => 
             console.log(res);
-            setInfo(res.data))
+            setUser(res.data))
         .catch(err => console.log(err));
     }, []);
 
@@ -21,18 +21,17 @@ const UserProfile = (props) => {
       <div className="userDiv">
         <h1>User Information</h1>
         <div className="cardContainer">
-            {props.user.map(user => (
+          props.user.map(user => (
                     <div key={user.id} className='matesCard'>
                         <p>username: {user.username}</p>
                         <p>password: {user.password}</p>
                         <p>phoneNumber: {user.phoneNumber}</p>
                     </div>
-            )};
+            )
         </div>
       </div>
-    );
-};
-
+  );
+}
            
 export default UserProfile;
   

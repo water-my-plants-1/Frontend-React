@@ -6,10 +6,10 @@ import "../index.css";
 //Form schema outside of function scope
 // I would prefer to have all errors show up until they have been fixed for each input as you go along
 const formSchema = yup.object().shape({
-  name: yup
-    .string()
-    .min(2, "Name must be at least two characters")
-    .required("Must include a name."),
+  // name: yup
+  //   .string()
+  //   .min(2, "Name must be at least two characters")
+  //   .required("Must include a name."),
   username: yup
     .string()
     .min(2, "Name must be at least two characters")
@@ -42,7 +42,7 @@ const formSchema = yup.object().shape({
 const UserSignUp = () => {
   // Create state for the form values. We will want to update state later on, but for now... empty strings!
   const [formState, setFormState] = useState({
-    name: "",
+    // name: "",
     username: "",
     password: "",
     confirm_password: "",
@@ -52,7 +52,7 @@ const UserSignUp = () => {
 
   // State for the error messages
   const [errors, setErrors] = useState({
-    name: "",
+    // name: "",
     username: "",
     password: "",
     confirm_password: "",
@@ -78,7 +78,7 @@ const UserSignUp = () => {
         setPost(res.data);
         // setPost([...post, res.data]);
         setFormState({
-          name: "",
+          // name: "",
           username: "",
           password: "",
           confirm_password: "",
@@ -141,7 +141,7 @@ const UserSignUp = () => {
       <h1>User Sign-Up</h1>
 
       <form onSubmit={formSubmit}>
-        <label htmlFor="name">
+        {/* <label htmlFor="name">
           Name
           <input
             id="name"
@@ -152,7 +152,7 @@ const UserSignUp = () => {
             onChange={inputChange}
           />
         </label>
-        {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
+        {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null} */}
 
         <label htmlFor="username">
           Username
