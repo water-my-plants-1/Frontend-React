@@ -29,6 +29,7 @@ function App() {
     setPlantList(plantList.filter(item => item.plantName !== plant.plantName));
   };
 
+  return (
     <BrowserRouter>
       <div className="App">
         <Link to="/">
@@ -38,6 +39,8 @@ function App() {
        <Link to="/UserLogin">
         <button>LogIn</button>
       </Link>
+
+      <PrivateRoute path='/home-page' component={HomePage} />
 
         <Link to="/Register">
           <button>Sign Up</button>
@@ -49,7 +52,7 @@ function App() {
     
          <Link to="/PlantList">
         <button>Your Plants</button>
-      </Link>
+        </Link>
 
        {/* Route exact path="/" components={Home} /> */}
       <Route path="/UserLogin" component={UserLogin} />
@@ -58,7 +61,6 @@ function App() {
       <Route path="/PlantList" render={props => (<PlantList {...props} plantList={plantList} removePlant={removePlant}/>)} />
 
       {/* render={props => (<DisplayPlants {...props} addPlant={addPlant} />)} */}
-    
       </div>
     </BrowserRouter>
   );
