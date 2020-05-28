@@ -52,7 +52,7 @@ const UserLogin = () => {
             // setPost(res.data);
             console.log("Results", res);
             console.log(res.data.token)
-            setPost(res.data); //which to use?
+            // setPost(res.data); //which to use?
             setFormState({
                 name: "",
                 email: "",
@@ -167,7 +167,6 @@ const UserLogin = () => {
         <button type="submit" data-cy="submit" disabled={buttonDisabled}>
           Login!
         </button>
-
       </form>
     </div>
   );
