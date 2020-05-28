@@ -64,6 +64,8 @@ const UserLogin = () => {
         .catch(err => {
           console.log("error from submit", err);
         })
+
+    // axios call from michelle to meet her MVP
     // axios
     //   .post("https://water-my-plants-backend-vw.herokuapp.com/Login", formState)
     //   .then((res) => {
@@ -130,7 +132,7 @@ const UserLogin = () => {
 
   return (
     <div className="userDiv">
-      <h1>User LogIn</h1>
+      <h1>User Login</h1>
       <form onSubmit={formSubmit}>
         <label htmlFor="username">
           Username

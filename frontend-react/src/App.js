@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Link, BrowserRouter} from "react-router-dom";
 
 // import Home from "./Home";
+// import UserProfile from "./components/UserProfile";
 import UserLogin from "./components/UserLogin";
 import UserSignUp from "./components/UserSignUp";
 import PlantForm from "./components/PlantForm";
@@ -36,12 +37,14 @@ function App() {
           <button>Home</button>
         </Link>
 
+        
+        {/* goal is to link marketing page to about link once the website is deployed by melissa or others */}
         <Link to="/">
-          <button>About</button>
+          <button>About</button> 
         </Link>
 
        <Link to="/UserLogin">
-        <button>LogIn</button>
+        <button>Login</button>
       </Link>
 
       <PrivateRoute path='/home-page' component={HomePage} />
@@ -61,10 +64,9 @@ function App() {
       {/* <Route exact path="/" components={Home} /> */}
       <Route path="/UserLogin" component={UserLogin} />
       <Route path="/Register" component={UserSignUp} />
-     
       <Route path="/PlantForm" component={PlantForm} />
-      
       <Route path="/PlantList" component={PlantList} />
+      {/* <Route path="/UserProfile" component={UserProfile} /> */}
    
       </div>
     </BrowserRouter>
