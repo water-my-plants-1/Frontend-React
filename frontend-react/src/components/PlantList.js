@@ -6,7 +6,7 @@ import "../index.css";
 
 
 const PlantList = () => {
-    const [listState, setListState] =useState();
+    const [listState, setListState] =useState([]);
 
     axios
     .get("https://water-my-plants-backend-vw.herokuapp.com/user/plants")
