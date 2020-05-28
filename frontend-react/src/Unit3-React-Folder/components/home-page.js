@@ -1,69 +1,43 @@
-import React, {useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchPlants } from '../actions/plantActions';
+import Loader from 'react-loader-spinner';
 
-
-
-const HomePage = (props) => {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-
+const Plants = props => {
     useEffect(() => {
-        axios
-            .get(`https://water-my-plants-backend-vw.herokuapp.com/plants`)
-            .then(res => { 
-                setData(res.data)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }, [loading])
+        props.fetchPlants();
+    }, [])
 
-    const handleDelete = e => {
-        setLoading(true);
-        e.preventDefault();
-        axios
-            .delete(
-                `https://water-my-plants-backend-vw.herokuapp.com/plants/${e.target.value}`
-                )
-                .then(res => {
-                    setData(res.data);
-                    setLoading(false);
-                })
-                .catch(err => {
-                    console.log(err)
-                });
-    }
-
-    if (!Array.isArray(data) || !data.length) {
-        return (
-            <div>
-                <h1>My Plants</h1>
-                <div>
-                    <p>
-                        Add a plant <Link to='/PlantForm'>here</Link>
-                    </p>
-                </div>
-            </div>
-        )
-    }
     return (
         <div>
-            <h1>My Plants</h1>
-            {data.map(plant => {
-                return (
-                    <div>
-                        value={plant.id}
-                        key={plant.id}
-                        name={plant.plant_name}
-                        species={plant.plant_species}
-                        schedule={plant.water_schedule}
-                        handleDelete={handleDelete}
-                    </div>
-                )
-            })}
+            <h1>Plants Plants Plants!</h1>
+            {props.isFetching && (
+                <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+                />
+            )}
+            <h3>{props.nickname}</h3>
+            <h3>{props.species}</h3>
+            <h3>{props.h2oFrequency}</h3>
+            <p>{props.error}</p>
         </div>
     )
 }
 
-export default HomePage;
+const mapStateToProps = state => {
+    return {
+        nickname: state.reducer.nickname,
+        species: state.reducer.species,
+        h2oFrequency: state.reducer.h2oFrequency,
+        isFetching: state.reducer.isFetching,
+        error: state.reducer.error
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    { fetchPlants }
+    )(Plants);
