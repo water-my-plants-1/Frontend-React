@@ -24,7 +24,7 @@ const formSchema = yup.object().shape({
 // Define form elements: email, password and terms/conditions
 
 const UserLogin = () => {
-  const [setPost] = useState({});
+  const [post, setPost] = useState({});
   const [buttonDisabled, setButtonDisabled] = useState(true);
   // Create state for the form values. We will want to update state later on, but for now... empty strings!
   const [formState, setFormState] = useState({
