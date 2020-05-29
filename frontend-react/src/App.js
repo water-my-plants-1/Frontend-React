@@ -51,7 +51,7 @@ function App() {
           <PrivateRoute path='/home-page' component={HomePage} />
 
             <Link to="/Register">
-              <button>Sign Up</button>
+              <button class="button7">Sign Up</button>
             </Link>
 
             <Link to="/PlantForm">
