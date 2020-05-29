@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Route, Link, BrowserRouter} from "react-router-dom";
+
+import PlantForm from "../components/PlantForm";
+import PlantList from "../components/PlantList";
+
 
 // this page can only be seen from within the login component after signing in. You can hit the button. 
 
@@ -20,6 +25,7 @@ const UserProfile = (props) => {
 
   if (user) {
         return (
+          <BrowserRouter>
             <div className="userDiv">
               <h1>User Profile Information</h1>
                 <div className="cardContainer">
@@ -33,7 +39,19 @@ const UserProfile = (props) => {
                     )
                   }
                 </div>  
+
             </div>
+            <Link to="/PlantForm">
+                <button>Add your plant!</button>
+                </Link>
+        
+                <Link to="/PlantList">
+                <button>Your Plants</button>
+                </Link>
+
+                <Route path="/PlantList" component={PlantList} />
+                <Route path="/PlantForm" component={PlantForm} />
+            </BrowserRouter>
         );
         
    } else { return (<div>Loading...</div>)};
