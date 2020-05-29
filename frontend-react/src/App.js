@@ -19,6 +19,7 @@ import "./index.css";
 
 function App() {
 
+
   // const [plantList, setPlantList] = useState([]);
 
   // const addPlant = plant => {
@@ -34,37 +35,38 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <div className="app-container">
-            <Link to="/">
-              <button>Home</button>
-            </Link>
+              <Link to="/">
+                <button>Home</button>
+              </Link>
 
+              
+              {/* goal is to link marketing page to about link once the website is deployed by melissa or others */}
+              {/* <Link to="/">
+                <button>About</button> 
+              </Link> */}
+
+              <Link to="/UserLogin">
+                <button>Login</button>
+              </Link>
+
+              <PrivateRoute path='/home-page' component={HomePage} />
+
+              <Link to="/Register">
+                <button class="button7">Sign Up</button>
+              </Link>
+
+              <Link to="/PlantForm">
+                <button>Add your plant!</button>
+              </Link>
+          
+              <Link to="/PlantList">
+              <button>Your Plants</button>
+              </Link>
+              
+              {/* <Link to="/UserProfile">
+              <button>User Profile</button>
+              </Link> */}
             
-            {/* goal is to link marketing page to about link once the website is deployed by melissa or others */}
-            {/* <Link to="/">
-              <button>About</button> 
-            </Link> */}
-
-          <Link to="/UserLogin">
-            <button>Login</button>
-          </Link>
-
-          <PrivateRoute path='/home-page' component={HomePage} />
-
-            <Link to="/Register">
-              <button class="button7">Sign Up</button>
-            </Link>
-
-            <Link to="/PlantForm">
-              <button>Add your plant!</button>
-            </Link>
-        
-            <Link to="/PlantList">
-            <button>Your Plants</button>
-            </Link>
-            
-            {/* <Link to="/UserProfile">
-            <button>User Profile</button>
-            </Link> */}
 
             <div className="route-paths">
               <Route exact path="/" component={Home} />
@@ -74,7 +76,7 @@ function App() {
               <Route path="/PlantList" component={PlantList} />
               <Route path="/UserProfile" component={UserProfile} />
             </div>
-        </div>
+          </div>
       </div>
     </BrowserRouter>
   );
