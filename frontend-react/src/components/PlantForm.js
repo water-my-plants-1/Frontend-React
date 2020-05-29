@@ -8,19 +8,19 @@ import "../index.css";
 const formSchema = yup.object().shape({
   nickname: yup.string().required("Plant name is a required field"),
   species: yup.string().required("Plant species is a required field"),
-  H2oFrequency: yup.string(),
+  h2oFrequency: yup.string(),
 });
 
 const PlantForm = () => {
   const [errorState, setErrorState] = useState({
     nickname: "",
     species: "",
-    H2oFrequency: "",
+    h2oFrequency: "",
   });
   const [formState, setFormState] = useState({
     nickname: "",
     species: "",
-    H2oFrequency: "",
+    h2oFrequency: "",
   });
 
   const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -65,7 +65,7 @@ const PlantForm = () => {
     setFormState({
       nickname: "",
       species: "",
-      H2oFrequency: "",
+      h2oFrequency: "",
     })
 
     console.log("form submitted!");
@@ -110,12 +110,12 @@ const PlantForm = () => {
           />
           {errorState.species.length > 0 ? <p id="error">{errorState.species}</p>: null}
         </label>
-        <label htmlFor="H2oFrequency">
+        <label htmlFor="h2oFrequency">
           Watering Schedule
           <select
-            name="H2oFrequency"
-            id="H2oFrequency"
-            value={formState.H2oFrequency}
+            name="h2oFrequency"
+            id="h2oFrequency"
+            value={formState.h2oFrequency}
             onChange={inputChange}
           >
             <option value="">-Please Select One-</option>
