@@ -1,10 +1,13 @@
-const initialState = {
-    nickname: '',
-    species: '',
-    h2oFrequency: 0,
+const initialState = 
+    {
+    // nickname: '',
+    // species: '',
+    // h2oFrequency: 0,
+    plants: [],
     isFetching: false,
     error:''
-};
+    };
+
 
 export const reducer = (state = initialState, action) => {
     switch(action.type) {
@@ -17,7 +20,7 @@ export const reducer = (state = initialState, action) => {
                 return {
                     ...state,
                     isFetching: false,
-                    nickname: action.payload,
+                    plants: action.payload,
                     error:''
                 }
             case 'FETCH_PLANTS_FAILED':
