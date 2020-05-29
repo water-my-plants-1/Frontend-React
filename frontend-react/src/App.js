@@ -51,7 +51,7 @@ function App() {
           <PrivateRoute path='/home-page' component={HomePage} />
 
             <Link to="/Register">
-              <button>Sign Up</button>
+              <button class="button7">Sign Up</button>
             </Link>
 
             <Link to="/PlantForm">
@@ -62,12 +62,12 @@ function App() {
             <button>Your Plants</button>
             </Link>
             
-            <Link to="/UserProfile">
+            {/* <Link to="/UserProfile">
             <button>User Profile</button>
-            </Link>
+            </Link> */}
 
             <div className="route-paths">
-              <Route exact path="/" components={Home} />
+              <Route exact path="/" component={Home} />
               <Route path="/UserLogin" component={UserLogin} />
               <Route path="/Register" component={UserSignUp} />
               <Route path="/PlantForm" component={PlantForm} />
