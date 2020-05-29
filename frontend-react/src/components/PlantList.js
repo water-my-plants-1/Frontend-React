@@ -32,9 +32,9 @@ const PlantList = () => {
                     listState.map((plant, i) => {
                         return(
                             <div className="plant" key={i}>
-                                <h3>Plant Name: {plant.nickname}</h3>
-                                <h3>Plant Species: {plant.species}</h3>
-                                <h3>Please water : {plant.h2oFrequency}</h3>
+                                <h4>My name is {plant.nickname}</h4>
+                                <h4>Plant Species: {plant.species}</h4>
+                                <h4>Please water me {plant.h2oFrequency} a day.</h4>
                                 <button onClick={() => removePlant(plant)}>Remove Plant</button>
                             </div>
                         );
