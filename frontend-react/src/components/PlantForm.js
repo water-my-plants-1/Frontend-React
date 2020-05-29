@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import * as yup from "yup";
 import { axiosWithAuth } from '../Unit3-React-Folder/utils/axiosWithAuth';
 
 import "../index.css";
+import { axiosWithAuth } from "../Unit3-React-Folder/utils/axiosWithAuth";
 
 const formSchema = yup.object().shape({
   nickname: yup.string().required("Plant name is a required field"),
@@ -11,7 +11,7 @@ const formSchema = yup.object().shape({
   h2oFrequency: yup.string(),
 });
 
-const PlantForm = () => {
+const PlantForm = (props) => {
   const [errorState, setErrorState] = useState({
     nickname: "",
     species: "",
@@ -62,22 +62,14 @@ const PlantForm = () => {
 
   const formSubmit = (e) => {
     e.preventDefault();
-    setFormState({
-      nickname: "",
-      species: "",
-      h2oFrequency: "",
-    })
+    
 
     console.log("form submitted!");
     axiosWithAuth()
-        // .post("https://water-my-plants-backend-vw.herokuapp.com/user", formState)   https://reqres.in/api/users
         .post("https://water-my-plants-backend-vw.herokuapp.com/user", formState)
-        .then(res => {
-          console.log(res.data);
-          localStorage.setItem('token', res.data.token);
-          //update display plants state
-          // props.newPlant(response.data);
-          // props.history.push("/PlantList");
+       
+        .then(response => {
+          props.history.push("/PlantList");
         })
         .catch(err => console.log(err));
     };

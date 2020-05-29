@@ -1,8 +1,8 @@
-import React from "react";
+import React,{useState} from "react";
 import { Route, Link, BrowserRouter} from "react-router-dom";
 
 import Home from "./components/Home";
-import UserProfile from "./components/UserProfile";
+// import UserProfile from "./components/UserProfile";
 import UserLogin from "./components/UserLogin";
 import UserSignUp from "./components/UserSignUp";
 import PlantForm from "./components/PlantForm";
@@ -19,16 +19,16 @@ import "./index.css";
 
 function App() {
 
-  // const [plantList, setPlantList] = useState([]);
+  const [plantList, setPlantList] = useState([]);
 
-  // const addPlant = plant => {
-  //   setPlantList([...plantList, plant]);
-  //   console.log('done');
-  // };
+  const addPlant = plant => {
+    setPlantList([...plantList, plant]);
+    console.log('done');
+  };
 
-  // const removePlant = plant => {
-  //   setPlantList(plantList.filter(item => item.plantName !== plant.plantName));
-  // };
+  const removePlant = plant => {
+    setPlantList(plantList.filter(item => item.plantName !== plant.plantName));
+  };
 
   return (
     <BrowserRouter>
