@@ -43,26 +43,23 @@ const UserLogin = () => {
   const formSubmit = (e) => {
     e.preventDefault();
     console.log("Submitted");
-    
     axiosWithAuth()
         .post('https://water-my-plants-backend-vw.herokuapp.com/login', formState)
         .then((res) => {
             localStorage.setItem('token', res.data.token);
             history.push('/home-page'); 
-            // setPost(res.data);
+            setPost(res.data);
             console.log("Results", res);
-            console.log(res.data.token)
-            // setPost(res.data); //which to use?
+            setPost([...post, res.data]); //which to use?
             setFormState({
                 name: "",
                 email: "",
                 password: "",
                 terms: ""
               });
-         
         })
         .catch(err => {
-          console.log("error from submit", err);
+          console.log(err.res);
         })
 
     // axios call from michelle to meet her MVP

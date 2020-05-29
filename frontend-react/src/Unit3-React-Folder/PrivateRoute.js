@@ -8,7 +8,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
             if (token) {
                 return <Component {...props} />
             } else {
-                return <Redirect to='INSERT LOGIN ENDPOINT HERE' />
+                return <Redirect to='https://water-my-plants-backend-vw.herokuapp.com/login' />
             }
         }}
         />
