@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import "../index.css";
-
-
-
 import { useHistory } from 'react-router-dom'
 import { axiosWithAuth } from '../Unit3-React-Folder/utils/axiosWithAuth';
 
@@ -24,7 +21,7 @@ const formSchema = yup.object().shape({
 
 // Define form elements: email, password and terms/conditions
 
-const UserLogin = () => {
+const UserLogin = (props) => {
   const [post, setPost] = useState({});
   const [buttonDisabled, setButtonDisabled] = useState(true);
   // Create state for the form values. We will want to update state later on, but for now... empty strings!
@@ -50,6 +47,7 @@ const UserLogin = () => {
             localStorage.setItem('token', res.data.token);
             
             console.log("Results", res);
+            props.setLogin(true);
             setPost(res.data); //which to use?
             history.push('/UserProfile'); 
             // setFormState({
