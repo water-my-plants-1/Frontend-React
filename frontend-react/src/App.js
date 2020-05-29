@@ -1,8 +1,8 @@
-import React from "react";
+import React,{useState} from "react";
 import { Route, Link, BrowserRouter} from "react-router-dom";
 
 import Home from "./components/Home";
-import UserProfile from "./components/UserProfile";
+// import UserProfile from "./components/UserProfile";
 import UserLogin from "./components/UserLogin";
 import UserSignUp from "./components/UserSignUp";
 import PlantForm from "./components/PlantForm";
@@ -19,16 +19,16 @@ import "./index.css";
 
 function App() {
 
-  // const [plantList, setPlantList] = useState([]);
+  const [plantList, setPlantList] = useState([]);
 
-  // const addPlant = plant => {
-  //   setPlantList([...plantList, plant]);
-  //   console.log('done');
-  // };
+  const addPlant = plant => {
+    setPlantList([...plantList, plant]);
+    console.log('done');
+  };
 
-  // const removePlant = plant => {
-  //   setPlantList(plantList.filter(item => item.plantName !== plant.plantName));
-  // };
+  const removePlant = plant => {
+    setPlantList(plantList.filter(item => item.plantName !== plant.plantName));
+  };
 
   return (
     <BrowserRouter>
@@ -61,17 +61,19 @@ function App() {
         <button>Your Plants</button>
         </Link>
         
-        <Link to="/UserProfile">
+        {/* <Link to="/UserProfile">
         <button>User Profile</button>
-        </Link>
+        </Link> */}
 
 
       <Route exact path="/" components={Home} />
       <Route path="/UserLogin" component={UserLogin} />
       <Route path="/Register" component={UserSignUp} />
-      <Route path="/PlantForm" component={PlantForm} />
-      <Route path="/PlantList" component={PlantList} />
-      <Route path="/UserProfile" component={UserProfile} />
+      {/* <Route path="/PlantForm" component={PlantForm} /> */}
+      {/* <Route path="/PlantList" component={PlantList} /> */}
+      <Route path="/PlantForm" render={props => (<PlantForm {...props} newPlant={addPlant}/>)} />
+      <Route path="/PlantList" render={props => (<PlantList {...props} plantList={plantList} removePlant={removePlant}/>)} />
+      {/* <Route path="/UserProfile" component={UserProfile} /> */}
    
       </div>
     </BrowserRouter>

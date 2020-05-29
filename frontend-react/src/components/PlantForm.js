@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import * as yup from "yup";
 
 import "../index.css";
+import { axiosWithAuth } from "../Unit3-React-Folder/utils/axiosWithAuth";
 
 const formSchema = yup.object().shape({
   nickname: yup.string().required("Plant name is a required field"),
   species: yup.string().required("Plant species is a required field"),
-  H2oFrequency: yup.string(),
+  h2oFrequency: yup.string(),
 });
 
-const PlantForm = () => {
+const PlantForm = (props) => {
   const [errorState, setErrorState] = useState({
     nickname: "",
     species: "",
-    H2oFrequency: "",
+    h2oFrequency: "",
   });
   const [formState, setFormState] = useState({
     nickname: "",
     species: "",
-    H2oFrequency: "",
+    h2oFrequency: "",
   });
 
   const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -64,18 +64,18 @@ const PlantForm = () => {
     setFormState({
       nickname: "",
       species: "",
-      H2oFrequency: "",
+      h2oFrequency: "",
     })
 
     console.log("form submitted!");
-    axios
+    axiosWithAuth()
         // .post("https://water-my-plants-backend-vw.herokuapp.com/user", formState)
         .post("https://reqres.in/api/users", formState)
         .then(response => {
           console.log(response.data);
           //update display plants state
-          // props.newPlant(response.data);
-          // props.history.push("/PlantList");
+          props.newPlant(response.data);
+          props.history.push("/PlantList");
         })
         .catch(err => console.log(err));
     };
@@ -108,12 +108,12 @@ const PlantForm = () => {
           />
           {errorState.species.length > 0 ? <p id="error">{errorState.species}</p>: null}
         </label>
-        <label htmlFor="H2oFrequency">
+        <label htmlFor="h2oFrequency">
           Watering Schedule
           <select
-            name="H2oFrequency"
-            id="H2oFrequency"
-            value={formState.H2oFrequency}
+            name="h2oFrequency"
+            id="h2oFrequency"
+            value={formState.h2oFrequency}
             onChange={inputChange}
           >
             <option value="">-Please Select One-</option>
