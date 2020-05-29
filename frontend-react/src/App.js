@@ -5,8 +5,7 @@ import Home from "./components/Home";
 import UserProfile from "./components/UserProfile";
 import UserLogin from "./components/UserLogin";
 import UserSignUp from "./components/UserSignUp";
-import PlantForm from "./components/PlantForm";
-import PlantList from "./components/PlantList";
+
 
 //unit3 react
 import PrivateRoute from './Unit3-React-Folder/PrivateRoute';
@@ -21,14 +20,6 @@ function App() {
 
   const [plantList, setPlantList] = useState([]);
 
-  const addPlant = plant => {
-    setPlantList([...plantList, plant]);
-    console.log('done');
-  };
-
-  const removePlant = plant => {
-    setPlantList(plantList.filter(item => item.plantName !== plant.plantName));
-  };
 
   return (
     <BrowserRouter>
@@ -53,25 +44,11 @@ function App() {
             <Link to="/Register">
               <button className="button7">Sign Up</button>
             </Link>
-
-            <Link to="/PlantForm">
-              <button>Add your plant!</button>
-            </Link>
-        
-            <Link to="/PlantList">
-            <button>Your Plants</button>
-            </Link>
             
-            {/* <Link to="/UserProfile">
-            <button>User Profile</button>
-            </Link> */}
-
             <div className="route-paths">
               <Route exact path="/" component={Home} />
               <Route path="/UserLogin" component={UserLogin} />
               <Route path="/Register" component={UserSignUp} />
-              <Route path="/PlantForm" component={PlantForm} />
-              <Route path="/PlantList" component={PlantList} />
               <Route path="/UserProfile" component={UserProfile} />
             </div>
         </div>

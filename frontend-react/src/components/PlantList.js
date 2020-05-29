@@ -8,7 +8,13 @@ const PlantList = () => {
     const [listState, setListState] =useState([]);
 
     const removePlant = plant => {
-        setListState(listState.filter(item => item.nickname !== plant.nickname));
+        
+        axiosWithAuth()
+        .delete(`https://water-my-plants-backend-vw.herokuapp.com/user/${plant.id}`)
+        .then(response => {
+            console.log('res ', response);
+            setListState(listState.filter(item => item.nickname !== plant.nickname));
+        })
       };
 
     useEffect(() => {
@@ -17,14 +23,14 @@ const PlantList = () => {
         
             .then(response => {
                 setListState(response.data);
-        
+        console.log('list ', response.data);
         })
         .catch(err => console.log(err));
     }, [])
 
 
     return(
-        <div>
+        <div className="plantList">
           
             <h2>Your Plants</h2>
             <div className="plantContainer">

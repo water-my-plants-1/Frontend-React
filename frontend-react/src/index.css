@@ -51,7 +51,9 @@ label {
     flex-direction: column;
     margin: 15px 0;
 }
-
+.plantList {
+  color: #073312;
+}
 .plant{
 
   width: 150px;

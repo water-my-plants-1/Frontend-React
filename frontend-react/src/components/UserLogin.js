@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import * as yup from "yup";
 import "../index.css";
 
+
+
 import { useHistory } from 'react-router-dom'
 import { axiosWithAuth } from '../Unit3-React-Folder/utils/axiosWithAuth';
 
@@ -49,7 +51,7 @@ const UserLogin = () => {
             
             console.log("Results", res);
             setPost(res.data); //which to use?
-            history.push('/home-page'); 
+            history.push('/UserProfile'); 
             // setFormState({
             //     name: "",
             //     email: "",
