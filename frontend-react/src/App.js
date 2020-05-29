@@ -62,9 +62,9 @@ function App() {
             <button>Your Plants</button>
             </Link>
             
-            <Link to="/UserProfile">
+            {/* <Link to="/UserProfile">
             <button>User Profile</button>
-            </Link>
+            </Link> */}
 
             <div className="route-paths">
               <Route exact path="/" component={Home} />
