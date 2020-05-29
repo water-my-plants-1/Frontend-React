@@ -61,13 +61,13 @@ const UserProfile = (props) => {
   if (user) {
         return (
             <div className="userDiv">
-              <h1>User Information</h1>
+              <h1>User Profile Information</h1>
                 <div className="cardContainer">
                   {
                     [user].map(user => ( 
                               <div key={user.id} className='infoCard'>
-                                  <p>username: {user.username}</p>
-                                  <p>phone: {user.phoneNumber}</p>
+                                  <p>Username: {user.username}</p>
+                                  <p>Phone number: {user.phoneNumber}</p>
                               </div>
                       )
                     )
