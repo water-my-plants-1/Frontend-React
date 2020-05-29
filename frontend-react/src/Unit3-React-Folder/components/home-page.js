@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchPlants } from '../actions/plantActions';
 // import { reducer } from '../reducers/reducer';
@@ -11,6 +12,10 @@ const Plants = props => {
  
     return (
         <div>
+             <Link to="/UserProfile">
+                <button>User Profile</button>
+            </Link>
+      
             <h1>Plants Plants Plants!</h1>
             {/* {props.isFetching && (
                 <Loader

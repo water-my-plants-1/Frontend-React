@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import * as yup from "yup";
+import { axiosWithAuth } from '../Unit3-React-Folder/utils/axiosWithAuth';
 
 import "../index.css";
 
@@ -68,11 +69,12 @@ const PlantForm = () => {
     })
 
     console.log("form submitted!");
-    axios
-        // .post("https://water-my-plants-backend-vw.herokuapp.com/user", formState)
-        .post("https://reqres.in/api/users", formState)
-        .then(response => {
-          console.log(response.data);
+    axiosWithAuth()
+        // .post("https://water-my-plants-backend-vw.herokuapp.com/user", formState)   https://reqres.in/api/users
+        .post("https://water-my-plants-backend-vw.herokuapp.com/user", formState)
+        .then(res => {
+          console.log(res.data);
+          localStorage.setItem('token', res.data.token);
           //update display plants state
           // props.newPlant(response.data);
           // props.history.push("/PlantList");

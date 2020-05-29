@@ -15,9 +15,10 @@ code {
 button {
     padding: 6px 10px;
     margin: 5px;
-    background-color: green;
+    background-color: darkgreen;
     border-radius: 3px;
     color: white;
+    opacity: 95%;
 }
 
 form {
