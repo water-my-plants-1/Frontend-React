@@ -67,7 +67,7 @@ function App() {
             </Link>
 
             <div className="route-paths">
-              <Route exact path="/" components={Home} />
+              <Route exact path="/" component={Home} />
               <Route path="/UserLogin" component={UserLogin} />
               <Route path="/Register" component={UserSignUp} />
               <Route path="/PlantForm" component={PlantForm} />

@@ -67,7 +67,7 @@ const UserProfile = (props) => {
                     [user].map(user => ( 
                               <div key={user.id} className='infoCard'>
                                   <p>username: {user.username}</p>
-                                  <p>phone: {user.phoneNumber}</p>
+                                  <p>phone number: {user.phoneNumber}</p>
                               </div>
                       )
                     )
