@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from "react";
+import { axiosWithAuth } from '../Unit3-React-Folder/utils/axiosWithAuth';
 
 import "../index.css";
-import { axiosWithAuth } from "../Unit3-React-Folder/utils/axiosWithAuth";
 
 const PlantList = () => {
     
     const [listState, setListState] =useState([]);
-    
+
     const removePlant = plant => {
         setListState(listState.filter(item => item.nickname !== plant.nickname));
-        
-    };
+      };
+
     useEffect(() => {
         axiosWithAuth()
-        .get("https://water-my-plants-backend-vw.herokuapp.com/user/plants")
-       
-        .then(response => {
-          console.log(response.data);
-          setListState(response.data);
-          
+            .get("https://water-my-plants-backend-vw.herokuapp.com/user/plants")
+        
+            .then(response => {
+                setListState(response.data);
+        
         })
         .catch(err => console.log(err));
     }, [])
+
+
     return(
         <div>
           

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import * as yup from "yup";
-import { axiosWithAuth } from '../Unit3-React-Folder/utils/axiosWithAuth';
 
 import "../index.css";
-import { axiosWithAuth } from "../Unit3-React-Folder/utils/axiosWithAuth";
+import { axiosWithAuth } from '../Unit3-React-Folder/utils/axiosWithAuth';
 
 const formSchema = yup.object().shape({
   nickname: yup.string().required("Plant name is a required field"),
@@ -62,12 +61,8 @@ const PlantForm = (props) => {
 
   const formSubmit = (e) => {
     e.preventDefault();
-    
-
-    console.log("form submitted!");
     axiosWithAuth()
         .post("https://water-my-plants-backend-vw.herokuapp.com/user", formState)
-       
         .then(response => {
           props.history.push("/PlantList");
         })

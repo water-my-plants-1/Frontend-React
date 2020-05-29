@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import { Route, Link, BrowserRouter} from "react-router-dom";
 
 import Home from "./components/Home";
-// import UserProfile from "./components/UserProfile";
+import UserProfile from "./components/UserProfile";
 import UserLogin from "./components/UserLogin";
 import UserSignUp from "./components/UserSignUp";
 import PlantForm from "./components/PlantForm";
@@ -51,7 +51,7 @@ function App() {
           <PrivateRoute path='/home-page' component={HomePage} />
 
             <Link to="/Register">
-              <button class="button7">Sign Up</button>
+              <button className="button7">Sign Up</button>
             </Link>
 
             <Link to="/PlantForm">
