@@ -1,9 +1,17 @@
 .App {
   text-align: center;
-  background: url("./components/greenplant.jpg") repeat;
+  background: url("./components/greenplant.jpg");
+  height: 100%;
+  background-repeat: repeat;
+  background-size: cover;
+  position: relative;
+  opacity: 0.95;
+  background-position: center;
   padding: 15%;
+  padding-bottom: 35%;
 }
 
+/* this provides the white background spacing for the modeules over the  */
 .app-container {
   background-color: white;
   padding: 10%;
