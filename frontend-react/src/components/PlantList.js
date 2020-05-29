@@ -4,6 +4,7 @@ import { axiosWithAuth } from '../Unit3-React-Folder/utils/axiosWithAuth';
 import "../index.css";
 
 const PlantList = () => {
+    
     const [listState, setListState] =useState([]);
 
     const removePlant = plant => {
@@ -24,6 +25,7 @@ const PlantList = () => {
 
     return(
         <div>
+          
             <h2>Your Plants</h2>
             <div className="plantContainer">
                 {
@@ -41,6 +43,5 @@ const PlantList = () => {
             </div>  
         </div>
     );
-            
 };
 export default PlantList;

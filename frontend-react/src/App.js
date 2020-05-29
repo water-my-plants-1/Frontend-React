@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Route, Link, BrowserRouter} from "react-router-dom";
 
 import Home from "./components/Home";
@@ -19,16 +19,16 @@ import "./index.css";
 
 function App() {
 
-  // const [plantList, setPlantList] = useState([]);
+  const [plantList, setPlantList] = useState([]);
 
-  // const addPlant = plant => {
-  //   setPlantList([...plantList, plant]);
-  //   console.log('done');
-  // };
+  const addPlant = plant => {
+    setPlantList([...plantList, plant]);
+    console.log('done');
+  };
 
-  // const removePlant = plant => {
-  //   setPlantList(plantList.filter(item => item.plantName !== plant.plantName));
-  // };
+  const removePlant = plant => {
+    setPlantList(plantList.filter(item => item.plantName !== plant.plantName));
+  };
 
   return (
     <BrowserRouter>
@@ -51,7 +51,7 @@ function App() {
           <PrivateRoute path='/home-page' component={HomePage} />
 
             <Link to="/Register">
-              <button>Sign Up</button>
+              <button className="button7">Sign Up</button>
             </Link>
 
             <Link to="/PlantForm">
@@ -62,12 +62,12 @@ function App() {
             <button>Your Plants</button>
             </Link>
             
-            <Link to="/UserProfile">
+            {/* <Link to="/UserProfile">
             <button>User Profile</button>
-            </Link>
+            </Link> */}
 
             <div className="route-paths">
-              <Route exact path="/" components={Home} />
+              <Route exact path="/" component={Home} />
               <Route path="/UserLogin" component={UserLogin} />
               <Route path="/Register" component={UserSignUp} />
               <Route path="/PlantForm" component={PlantForm} />

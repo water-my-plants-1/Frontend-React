@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
 import * as yup from "yup";
 import "../index.css";
 
@@ -47,16 +46,16 @@ const UserLogin = () => {
         .post('https://water-my-plants-backend-vw.herokuapp.com/login', formState)
         .then((res) => {
             localStorage.setItem('token', res.data.token);
-            history.push('/home-page'); 
-            setPost(res.data);
+            
             console.log("Results", res);
-            setPost([...post, res.data]); //which to use?
-            setFormState({
-                name: "",
-                email: "",
-                password: "",
-                terms: ""
-              });
+            setPost(res.data); //which to use?
+            history.push('/home-page'); 
+            // setFormState({
+            //     name: "",
+            //     email: "",
+            //     password: "",
+            //     terms: ""
+            //   });
         })
         .catch(err => {
           console.log(err.res);
@@ -161,10 +160,13 @@ const UserLogin = () => {
           <p className="error">{errors.email}</p>
         ) : null}
 
-        <button type="submit" data-cy="submit" disabled={buttonDisabled}>
-          Login!
+        <br/>
+
+        <button type="submit" className="buttonLogin" disabled={buttonDisabled}><span>Login</span>
         </button>
       </form>
+        
+     
     </div>
   );
 };
