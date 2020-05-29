@@ -2,48 +2,84 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
-const UserProfile = (props) => {
-    const [user, setUser] = useState([ {key: "value"} ]);
+// const UserProfile = (props) => {
+//     const [user, setUser] = useState([ {key: "value"} ]);
     
-    useEffect(() => {
-        axios
-          .get("https://reqres.in/api/users")
-          .then(res => {
-              console.log(res.data)
-              setUser(res.data)
-            }
-          )
-          .catch(err => console.log(err));
-          console.log("this is user from API", user);
-    }, [])
+//     useEffect(() => {
+//         axios
+//           .get("https://reqres.in/api/users")
+//           .then(res => {
+//               console.log(res.data)
+//               setUser(res.data)
+//             }
+//           )
+//           .catch(err => console.log(err));
+//           console.log("this is user from API", user);
+//     }, [])
 
-    if (user) {
-          return (
-              <div className="userDiv">
-                <h1>User Information</h1>
-                  <div className="cardContainer">
-                    {
-                      [user].map(user => ( 
-                                <div key={user.id} className='infoCard'>
-                                    <p>username: {user.email}</p>
-                                    <p>first name: {user.first_name}</p>
-                                    <p>last name: {user.last_name}</p>
-                                </div>
-                        )
-                      )
-                    }
-                  </div>  
-              </div>
-          );
+//     if (user) {
+//           return (
+//               <div className="userDiv">
+//                 <h1>User Information</h1>
+//                   <div className="cardContainer">
+//                     {
+//                       [user].map(user => ( 
+//                                 <div key={user.id} className='infoCard'>
+//                                     <p>username: {user.email}</p>
+//                                     <p>first name: {user.first_name}</p>
+//                                     <p>last name: {user.last_name}</p>
+//                                 </div>
+//                         )
+//                       )
+//                     }
+//                   </div>  
+//               </div>
+//           );
           
-     } else { return (<div>Loading...</div>)};
-}
+//      } else { return (<div>Loading...</div>)};
+// }
 
-export default UserProfile;
+// export default UserProfile;
            
 
 
+const UserProfile = (props) => {
+  const [user, setUser] = useState([ {key: "value"} ]);
+  
+  useEffect(() => {
+      axios
+        .get("https://water-my-plants-backend-vw.herokuapp.com/user")
+        .then(res => {
+            console.log(res.data)
+            setUser(res.data)
+          }
+        )
+        .catch(err => console.log(err));
+        console.log("this is user from API", user);
+  }, [])
 
+  if (user) {
+        return (
+            <div className="userDiv">
+              <h1>User Information</h1>
+                <div className="cardContainer">
+                  {
+                    [user].map(user => ( 
+                              <div key={user.id} className='infoCard'>
+                                  <p>username: {user.username}</p>
+                                  <p>phone: {user.phoneNumber}</p>
+                              </div>
+                      )
+                    )
+                  }
+                </div>  
+            </div>
+        );
+        
+   } else { return (<div>Loading...</div>)};
+}
+
+export default UserProfile;
 
 
 
