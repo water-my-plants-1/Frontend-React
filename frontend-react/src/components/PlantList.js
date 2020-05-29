@@ -24,6 +24,7 @@ const PlantList = () => {
     }, [])
     return(
         <div>
+          
             <h2>Your Plants</h2>
             <div className="plantContainer">
                 {
@@ -41,6 +42,5 @@ const PlantList = () => {
             </div>  
         </div>
     );
-            
 };
 export default PlantList;
