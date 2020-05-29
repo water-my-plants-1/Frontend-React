@@ -24,7 +24,7 @@ const formSchema = yup.object().shape({
 // Define form elements: email, password and terms/conditions
 
 const UserLogin = () => {
-  const [post, setPost] = useState({});
+  const [setPost] = useState({});
   const [buttonDisabled, setButtonDisabled] = useState(true);
   // Create state for the form values. We will want to update state later on, but for now... empty strings!
   const [formState, setFormState] = useState({
@@ -61,6 +61,8 @@ const UserLogin = () => {
         .catch(err => {
           console.log(err.res);
         })
+
+    // axios call from michelle to meet her MVP
     // axios
     //   .post("https://water-my-plants-backend-vw.herokuapp.com/Login", formState)
     //   .then((res) => {
@@ -127,7 +129,7 @@ const UserLogin = () => {
 
   return (
     <div className="userDiv">
-      <h1>User LogIn</h1>
+      <h1>User Login</h1>
       <form onSubmit={formSubmit}>
         <label htmlFor="username">
           Username
@@ -162,7 +164,6 @@ const UserLogin = () => {
         <button type="submit" data-cy="submit" disabled={buttonDisabled}>
           Login!
         </button>
-
       </form>
     </div>
   );

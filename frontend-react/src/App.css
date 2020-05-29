@@ -1,5 +1,13 @@
 .App {
   text-align: center;
+  background: url("./components/greenplant.jpg") repeat;
+  padding: 15%;
+}
+
+.app-container {
+  background-color: white;
+  padding: 10%;
+  padding-top: 5%;
 }
 
 .App-logo {
