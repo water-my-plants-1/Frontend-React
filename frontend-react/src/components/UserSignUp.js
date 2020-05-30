@@ -6,10 +6,6 @@ import "../index.css";
 //Form schema outside of function scope
 // I would prefer to have all errors show up until they have been fixed for each input as you go along
 const formSchema = yup.object().shape({
-  // name: yup
-  //   .string()
-  //   .min(2, "Name must be at least two characters")
-  //   .required("Must include a name."),
   username: yup
     .string()
     .min(2, "Name must be at least two characters")
@@ -21,19 +17,19 @@ const formSchema = yup.object().shape({
     .matches(/[A-Z]/, 'At least one uppercase character required.')
     .matches(/[a-zA-Z]+[^a-zA-Z\s]+/, 'At least 1 number or special character is required (@,!,#, etc).')
     .required("Password is Required"),
-  confirm_password: yup
-    .string()
-    .required()
-    .oneOf([yup.ref("password"), null], "Passwords must match"),
-  phone_number: yup
+  // confirm_password: yup
+  //   .string()
+  //   .required()
+  //   .oneOf([yup.ref("password"), null], "Passwords must match"),
+  phoneNumber: yup
     .number()
     .typeError("That doesn't look like a phone number")
     .positive("A phone number can't start with a minus")
     .integer("A phone number can't include a decimal point")
     .min(8)
     .required('A phone number is required'),
-  terms: yup
-    .boolean().oneOf([true], "You must accept Terms and Conditions"),
+  // terms: yup
+  //   .boolean().oneOf([true], "You must accept Terms and Conditions"),
   // required isn't required for checkboxes.
 });
 
@@ -45,9 +41,9 @@ const UserSignUp = () => {
     // name: "",
     username: "",
     password: "",
-    confirm_password: "",
-    phone_number: "",
-    terms: "",
+    // confirm_password: "",
+    phoneNnumber: "",
+    // terms: "",
   });
 
   // State for the error messages
@@ -55,9 +51,9 @@ const UserSignUp = () => {
     // name: "",
     username: "",
     password: "",
-    confirm_password: "",
-    phone_number: "",
-    terms: "",
+    // confirm_password: "",
+    phoneNumber: "",
+    // terms: "",
   });
 
   const [post, setPost] = useState({});
@@ -81,9 +77,9 @@ const UserSignUp = () => {
           // name: "",
           username: "",
           password: "",
-          confirm_password: "",
-          phone_number: "",
-          terms: "",
+          // confirm_password: "",
+          phoneNumber: "",
+          // terms: "",
         });
       })
       .catch((err) => console.log(err.res));
@@ -141,18 +137,6 @@ const UserSignUp = () => {
       <h1>User Sign-Up</h1>
 
       <form onSubmit={formSubmit}>
-        {/* <label htmlFor="name">
-          Name
-          <input
-            id="name"
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={formState.name}
-            onChange={inputChange}
-          />
-        </label>
-        {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null} */}
 
         <label htmlFor="username">
           Username
@@ -169,10 +153,10 @@ const UserSignUp = () => {
           <p className="error">{errors.username}</p>
         ) : null}
 
-        <label htmlFor="passwordInput">
+        <label htmlFor="password">
           Password
           <input
-            id="passwordInput"
+            id="password"
             type="password"
             name="password"
             placeholder="Password"
@@ -184,7 +168,7 @@ const UserSignUp = () => {
           <p className="error">{errors.password}</p>
         ) : null}
 
-        <label htmlFor="confirm_password">
+        {/* <label htmlFor="confirm_password">
           Confirm Password
           <input
             id="confirm_password"
@@ -195,14 +179,14 @@ const UserSignUp = () => {
             onChange={inputChange}
           />
         </label>
-        {/* error for confirm passworc ? */}
+        error for confirm passworc ? */}
 
-        <label htmlFor="phone_number">
+        <label htmlFor="phoneNumber">
           Phone Number
           <input
-            id="phone_number"
+            id="phoneNumber"
             type="text"
-            name="phone_number"
+            name="phoneNumber"
             placeholder="Phone Number"
             value={formState.phone_number}
             onChange={inputChange}
@@ -210,7 +194,7 @@ const UserSignUp = () => {
         </label>
         {/* error for phone number? */}
 
-        <label htmlFor="termsInput">
+        {/* <label htmlFor="termsInput">
           Do you agree to the terms and conditions?
           <input
             id="termsInput"
@@ -219,7 +203,7 @@ const UserSignUp = () => {
             checked={formState.termsInput}
             onChange={inputChange}
           />
-        </label>
+        </label> */}
 
         <button type="submit" data-cy="submit" disabled={buttonDisabled}>
           Register!
