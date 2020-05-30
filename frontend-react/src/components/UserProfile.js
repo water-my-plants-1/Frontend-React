@@ -27,16 +27,17 @@ const UserProfile = (props) => {
         return (
             <div className="userDiv">
               <h1>User Profile Information</h1>
-                <div className="cardContainer">
-                  {/* {
-                    user.map(user => ( 
-                              <div key={user.id} className='infoCard'>
-                                  <p>Username: {user.username}</p>
-                                  <p>Phone number: {user.phoneNumber}</p>
-                              </div>
-                      )
-                    )
-                  } */}
+                <div className="cardContainer"
+                  {
+                    // user.map(user => ( 
+                    //           <div key={user.id} className='infoCard'>
+                    //               <p>Username: {user.username}</p>
+                    //               <p>Phone number: {user.phoneNumber}</p>
+                    //           </div>
+                    //   )
+                    // )
+                  }
+
                 </div>  
 
             </div>
