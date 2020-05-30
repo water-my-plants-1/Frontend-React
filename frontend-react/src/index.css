@@ -51,20 +51,31 @@ label {
     flex-direction: column;
     margin: 15px 0;
 }
-
+.plantList {
+  color: #073312;
+}
 .plant{
-  background-color: aquamarine;
+
   width: 150px;
   margin: 20px;
+  border-radius: 5px;
+  border: 1px solid green;
+}
+.plant button {
+  color: darkgreen;
+  font-size: .75rem;
+  background-color: lightseagreen;
+}
+.plant h4 {
+  color: #34b386;
+  font-size: .65rem;
 }
 
 .plantContainer{
   display: flex;
   flex-wrap: wrap;
 }
-/* .plantContainer h2{
-  margin: 20px 0;
-} */
+
 
 
 .buttonLogin{
