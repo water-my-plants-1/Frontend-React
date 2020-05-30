@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+
+import { axiosWithAuth } from '../Unit3-React-Folder/utils/axiosWithAuth';
 
 
 
@@ -7,10 +8,11 @@ import axios from 'axios';
 // this page can only be seen from within the login component after signing in. You can hit the button. 
 
 const UserProfile = (props) => {
-  const [user, setUser] = useState([ {key: "value"} ]);
-  console.log('userprofile');
+  const [user, setUser] = useState([]);
   useEffect(() => {
-      axios
+
+
+      axiosWithAuth()
         .get("https://water-my-plants-backend-vw.herokuapp.com/user")
         .then(res => {
             console.log('profile effect ', res.data)
@@ -27,13 +29,13 @@ const UserProfile = (props) => {
               <h1>User Profile Information</h1>
                 <div className="cardContainer">
                   {
-                    user.map(user => ( 
-                              <div key={user.id} className='infoCard'>
-                                  <p>Username: {user.username}</p>
-                                  <p>Phone number: {user.phoneNumber}</p>
-                              </div>
-                      )
-                    )
+                    // user.map(user => ( 
+                    //           <div key={user.id} className='infoCard'>
+                    //               <p>Username: {user.username}</p>
+                    //               <p>Phone number: {user.phoneNumber}</p>
+                    //           </div>
+                    //   )
+                    // )
                   }
                 </div>  
 
