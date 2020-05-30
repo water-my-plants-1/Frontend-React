@@ -19,6 +19,8 @@ import "./index.css";
 
 function App() {
 
+  // const [plantList, setPlantList] = useState([]);
+
   const [isLoginState, setIsLoginState] = useState(false);
 
   useEffect(() => {
@@ -39,10 +41,13 @@ function App() {
     
       <div className="App">
         <div className="app-container">
+
             <Link to="/">
               <button>Home</button>
             </Link>
+                          
             
+
             {/* goal is to link marketing page to about link once the website is deployed by melissa or others */}
             {/* <Link to="/">
               <button>About</button> 
@@ -57,6 +62,11 @@ function App() {
                 <Link to="/PlantList">
                   <button>Your Plants</button>
                 </Link>
+
+                <Link to="/UserProfile">
+                  <button>User Profile</button>
+                </Link>
+
                 <button onClick= {signout}>Sign Out</button>
               </> : 
               <>
@@ -68,6 +78,7 @@ function App() {
                 </Link>
               </>
           }
+
             <div className="route-paths">
               <Route exact path="/" component={Home} />
               <PrivateRoute path='/home-page' component={HomePage} />
