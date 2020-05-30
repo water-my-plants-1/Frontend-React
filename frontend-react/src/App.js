@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import { Route, Link, BrowserRouter} from "react-router-dom";
 
 import Home from "./components/Home";
@@ -19,64 +19,66 @@ import "./index.css";
 
 function App() {
 
+  const [isLoginState, setIsLoginState] = useState(false);
 
-  // const [plantList, setPlantList] = useState([]);
+  useEffect(() => {
+    const token = window.localStorage.getItem('token');
+    if (token) {
+      setIsLoginState(true);
+    }
+  }, [isLoginState])
 
-  // const addPlant = plant => {
-  //   setPlantList([...plantList, plant]);
-  //   console.log('done');
-  // };
-
-  // const removePlant = plant => {
-  //   setPlantList(plantList.filter(item => item.plantName !== plant.plantName));
-  // };
+  const signout = () => {
+    console.log("signoutworking")
+    window.localStorage.removeItem("token")
+    setIsLoginState(false);
+  };
 
   return (
     <BrowserRouter>
+    
       <div className="App">
         <div className="app-container">
-              <Link to="/">
-                <button>Home</button>
-              </Link>
-
-              
-              {/* goal is to link marketing page to about link once the website is deployed by melissa or others */}
-              {/* <Link to="/">
-                <button>About</button> 
-              </Link> */}
-
-              <Link to="/UserLogin">
-                <button>Login</button>
-              </Link>
-
-              <PrivateRoute path='/home-page' component={HomePage} />
-
-              <Link to="/Register">
-                <button class="button7">Sign Up</button>
-              </Link>
-
-              <Link to="/PlantForm">
-                <button>Add your plant!</button>
-              </Link>
-          
-              <Link to="/PlantList">
-              <button>Your Plants</button>
-              </Link>
-              
-              {/* <Link to="/UserProfile">
-              <button>User Profile</button>
-              </Link> */}
+            <Link to="/">
+              <button>Home</button>
+            </Link>
             
+            {/* goal is to link marketing page to about link once the website is deployed by melissa or others */}
+            {/* <Link to="/">
+              <button>About</button> 
+            </Link> */}
 
+          { isLoginState ? 
+              <>
+                <Link to="/PlantForm">
+                  <button>Add your plant!</button>
+                </Link>
+        
+                <Link to="/PlantList">
+                  <button>Your Plants</button>
+                </Link>
+                <button onClick= {signout}>Sign Out</button>
+              </> : 
+              <>
+                <Link to="/UserLogin">
+                  <button>Login</button>
+                </Link>
+                <Link to="/Register">
+                  <button className="button7">Sign Up</button>
+                </Link>
+              </>
+          }
             <div className="route-paths">
               <Route exact path="/" component={Home} />
-              <Route path="/UserLogin" component={UserLogin} />
+              <PrivateRoute path='/home-page' component={HomePage} />
+              {/* <Route path="/UserLogin" component={UserLogin} /> */}
+              <Route path="/UserLogin" render={(props) => <UserLogin {...props} setLogin={setIsLoginState} />} />
               <Route path="/Register" component={UserSignUp} />
-              <Route path="/PlantForm" component={PlantForm} />
-              <Route path="/PlantList" component={PlantList} />
               <Route path="/UserProfile" component={UserProfile} />
+              <Route path="/PlantList" component={PlantList} />
+              <Route path="/PlantForm" component={PlantForm} />
             </div>
-          </div>
+        </div>
       </div>
     </BrowserRouter>
   );

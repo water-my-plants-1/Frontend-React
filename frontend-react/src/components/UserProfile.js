@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+
+
+
 // this page can only be seen from within the login component after signing in. You can hit the button. 
 
 const UserProfile = (props) => {
   const [user, setUser] = useState([ {key: "value"} ]);
-  
+  console.log('userprofile');
   useEffect(() => {
       axios
         .get("https://water-my-plants-backend-vw.herokuapp.com/user")
         .then(res => {
-            console.log(res.data)
+            console.log('profile effect ', res.data)
             setUser(res.data)
           }
         )
@@ -18,13 +21,13 @@ const UserProfile = (props) => {
         console.log("this is user from API", user);
   }, [])
 
-  if (user) {
+
         return (
             <div className="userDiv">
               <h1>User Profile Information</h1>
                 <div className="cardContainer">
                   {
-                    [user].map(user => ( 
+                    user.map(user => ( 
                               <div key={user.id} className='infoCard'>
                                   <p>Username: {user.username}</p>
                                   <p>Phone number: {user.phoneNumber}</p>
@@ -33,10 +36,11 @@ const UserProfile = (props) => {
                     )
                   }
                 </div>  
+
             </div>
         );
         
-   } else { return (<div>Loading...</div>)};
+ 
 }
 
 export default UserProfile;

@@ -3,12 +3,13 @@ import { Route, Redirect } from 'react-router-dom';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
     const token = window.localStorage.getItem('token');
+    console.log('token ', token);
     return (
         <Route {...rest} render={props => {
             if (token) {
                 return <Component {...props} />
             } else {
-                return <Redirect to='https://water-my-plants-backend-vw.herokuapp.com/login' />
+                return <Redirect to='/login' />
             }
         }}
         />

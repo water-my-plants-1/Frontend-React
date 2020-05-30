@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from "react-router-dom";
 import { connect } from 'react-redux';
 import { fetchPlants } from '../actions/plantActions';
 // import { reducer } from '../reducers/reducer';
 // import Loader from 'react-loader-spinner';
+
+
 
 const Plants = props => {
     useEffect(() => {
@@ -11,10 +13,8 @@ const Plants = props => {
     }, [])
  
     return (
+      
         <div>
-             <Link to="/UserProfile">
-                <button>User Profile</button>
-            </Link>
       
             <h1>Plants Plants Plants!</h1>
             {/* {props.isFetching && (
@@ -33,6 +33,7 @@ const Plants = props => {
             <h3>{props.h2oFrequency}</h3> */}
             {/* <p>{props.data.error}</p> */}
         </div>
+   
     )
 }
 
