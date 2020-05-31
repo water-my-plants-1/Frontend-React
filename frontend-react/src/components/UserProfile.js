@@ -27,7 +27,7 @@ const UserProfile = (props) => {
         return (
             <div className="userDiv">
               <h1>User Profile Information</h1>
-                <div className="cardContainer">
+                <div className="cardContainer"
                   {
                     // user.map(user => ( 
                     //           <div key={user.id} className='infoCard'>
@@ -37,6 +37,7 @@ const UserProfile = (props) => {
                     //   )
                     // )
                   }
+
                 </div>  
 
             </div>
@@ -138,7 +139,3 @@ export default UserProfile;
 
 // if backend link doesnt work then get request to post info using https://reqres.in/api/users
 // goal is to get the user information to display
-
-
-
-
