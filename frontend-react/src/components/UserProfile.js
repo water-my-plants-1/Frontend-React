@@ -27,7 +27,7 @@ const UserProfile = (props) => {
         return (
             <div className="userDiv">
               <h1>User Profile Information</h1>
-                <div className="cardContainer"
+                <div className="cardContainer">
                   {
                     // user.map(user => ( 
                     //           <div key={user.id} className='infoCard'>
@@ -37,7 +37,7 @@ const UserProfile = (props) => {
                     //   )
                     // )
                   }
-
+                
                 </div>  
 
             </div>
